@@ -30,7 +30,7 @@ class DynamicFieldsModelSerializer(serializers.ModelSerializer):
 class UserSerializer(DynamicFieldsModelSerializer):
     class Meta:
         model = User
-        exclude = ['is_staff', 'is_active', 'date_joined', 'last_login', 'groups', 'user_permissions']
+        exclude = ['is_staff', 'is_active', 'last_login', 'groups', 'user_permissions']
         write_only_fields = ['password']
 
     def create(self, validated_data):
