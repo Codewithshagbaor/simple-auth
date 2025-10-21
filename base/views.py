@@ -26,5 +26,10 @@ class EmailLoginView(APIView):
         if serializer.is_valid():
             user = serializer.validated_data['user']
             tokens = serializer.get_tokens_for_user(user)
-            return Response(tokens, status=status.HTTP_200_OK)
+            response = {
+                "message": "Login successful.",
+                "refresh": tokens["refresh"],
+                "access": tokens["access"],
+            }
+            return Response(response, status=status.HTTP_200_OK)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
