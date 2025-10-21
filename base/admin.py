@@ -8,7 +8,7 @@ class UserAdmin(BaseUserAdmin):
     fieldsets = (
         (None, {"fields": ("email", "password")}),
         (_("Important Dates"), {
-            "fields": ("last_login", "date_joined"),
+            "fields": ("last_login",),
         }),
         (_("Django Permissions"), {
             "fields": (
@@ -35,7 +35,6 @@ class UserAdmin(BaseUserAdmin):
         "email",
     )
     ordering = ["email"]
-    readonly_fields = ["date_joined"]
 
 
 admin.site.register(User, UserAdmin)
