@@ -1,8 +1,8 @@
 databases:
   - name: simple-auth
     plan: free
-    databaseName: simple-auth-db
-    user: simple-auth
+    databaseName: simple_auth_db_204s
+    user: simple_auth_db_204s_user
 
 services:
   - type: web
@@ -19,4 +19,5 @@ services:
       - key: SECRET_KEY
         generateValue: true
       - key: WEB_CONCURRENCY
+
         value: 4
